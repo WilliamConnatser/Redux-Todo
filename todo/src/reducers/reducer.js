@@ -1,4 +1,4 @@
-import {ADD_TODO} from '../actions/actions';
+import {ADD_TODO, TOGGLE_COMPLETE} from '../actions/actions';
 
 const initialState = {
     todoList: [
@@ -28,6 +28,14 @@ export default function reducer(state = initialState, action) {
                         complete: false
                     }
                 ]
+            }
+        case TOGGLE_COMPLETE:
+            const todoIndex = state.todoList.findIndex(todo => todo.value === action.payload);
+            const newList = state.todoList.slice();
+            newList[todoIndex].complete = !newList[todoIndex].complete;
+            return {
+                ...state,
+                todoList: newList
             }
         default:
             return state;

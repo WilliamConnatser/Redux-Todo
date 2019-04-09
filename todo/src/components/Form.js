@@ -25,7 +25,7 @@ class Form extends Component {
     render() {
         return (
             <form onSubmit={this.onSubmitHandler}>
-                Add a todo...
+                <h2>Add a todo...</h2>
                 <input onChange={this.onChangeHandler} value={this.state.value}></input>
                 <button type="submit">Add Todo</button>
             </form>
